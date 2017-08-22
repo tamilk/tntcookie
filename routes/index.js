@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 const pg = require('pg');
 const path = require('path');
-const connectionString = 'postgres:postgres@localhost:5432/tntcook';
+const connectionString = 'postgres://vejilcrnmxoytr:646a853b1be57ceadffb2b0ebcbd04d1dc5a9a865440e205298f3074092bf135@ec2-54-163-237-25.compute-1.amazonaws.com:5432/d2o9461ecr9bbs';
 
 //console.log('process.env---',process.env);
 
