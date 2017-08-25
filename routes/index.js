@@ -40,8 +40,9 @@ router.post('/api/checkCookie', (req, res, next) => {
 
     const selquery = client.query('select * from psegcook where mboxmcgvid= $1',[data.mboxMCGVID]);
     selquery.on('end', (row) => {
-      if(row.rows.length == 0)        {
-          const query = client.query('INSERT INTO psegcook(mboxmcgvid, p_seg_value) values($1, $2)', [data.mboxMCGVID, data.p_seg_value]);
+      if(row.rows.length == 0){
+        var timeInMs = Date.now();
+          const query = client.query('INSERT INTO psegcook(mboxmcgvid, p_seg_value, created_at) values($1, $2, $3)', [data.mboxMCGVID, data.p_seg_value,timeInMs]);
           query.on('end', () => {
             done();
             return res.json({"result":"inserted"});
